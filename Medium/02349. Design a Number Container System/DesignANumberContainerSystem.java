@@ -3,36 +3,39 @@ import java.util.HashMap;
 import java.util.PriorityQueue;
 
 class NumberContainers {
-    private Map<Integer, Integer> indexToNumbers;
-    private Map<Integer, PriorityQueue<Integer>> numberToIndices;
+    private final Map<Integer, Integer> indexToNumbers;
+    private final Map<Integer, PriorityQueue<Integer>> numberToIndices;
 
     public NumberContainers() {
         indexToNumbers = new HashMap<>();
         numberToIndices = new HashMap<>();
     }
-    
+
     public void change(int index, int number) {
+        if (indexToNumbers.containsKey(index)) {
+            int oldNumber = indexToNumbers.get(index);
+            if (oldNumber != number) {
+                numberToIndices.get(oldNumber).remove(index);
+                if (numberToIndices.get(oldNumber).isEmpty()) {
+                    numberToIndices.remove(oldNumber);
+                }
+            }
+        }
         indexToNumbers.put(index, number);
-        numberToIndices
-            .computeIfAbsent(number, k -> new PriorityQueue<>())
-            .add(index);
+        numberToIndices.computeIfAbsent(number, k -> new PriorityQueue<>()).add(index);
     }
-    
+
     public int find(int number) {
         if (!numberToIndices.containsKey(number)) {
             return -1;
         }
 
-        PriorityQueue<Integer> minimumHeap = numberToIndices.get(number);
-        while (!minimumHeap.isEmpty()) {
-            int index = minimumHeap.peek();
-            if (indexToNumbers.get(index) == number) {
-                return index;
-            }
-            minimumHeap.poll();
+        PriorityQueue<Integer> minHeap = numberToIndices.get(number);
+        while (!minHeap.isEmpty() && indexToNumbers.get(minHeap.peek()) != number) {
+            minHeap.poll();
         }
 
-        return -1;
+        return minHeap.isEmpty() ? -1 : minHeap.peek();
     }
 }
 
@@ -43,41 +46,49 @@ class NumberContainers {
  * int param_2 = obj.find(number);
  */
 
-public class DesignANumberContainerSystem {
+ public class DesignANumberContainerSystem {
     public static void main(String[] args) {
-        String activities[] = {
-            "NumberContainers",
-            "find", "change", "change", "change",
+        String[] activities = {
+            "NumberContainers", "find", "change", "change", "change",
             "change", "find", "change", "find"
         };
         int[][] values = {
             {}, {10}, {2, 10}, {1, 10}, {3, 10},
             {5, 10}, {10}, {1, 20}, {10}
         };
+
         NumberContainers numberContainers = new NumberContainers();
         int activitiesLength = activities.length;
         Integer[] result = new Integer[activitiesLength];
-        
+
         for (int i = 0; i < activitiesLength; ++i) {
-            if (activities[i] == "NumberContainers") {
-                // numberContainers = new NumberContainers();
-            } else if (activities[i] == "change") {
-                numberContainers.change(values[i][0], values[i][1]);
-            } else if (activities[i] == "find") {
-                result[i] = numberContainers.find(values[i][0]);
-            } else {
-                result[i] = Integer.MIN_VALUE;
+            switch (activities[i]) {
+                case "change":
+                    numberContainers.change(values[i][0], values[i][1]);
+                    result[i] = null;
+                    break;
+                case "find":
+                    result[i] = numberContainers.find(values[i][0]);
+                    break;
+                default:
+                    result[i] = null; // Đánh dấu vị trí không có giá trị đầu ra
+                    break;
             }
         }
 
-        System.out.print("[");
+        // In kết quả sử dụng StringBuilder để tối ưu I/O
+        StringBuilder output = new StringBuilder("[");
         for (int i = 0; i < result.length; ++i) {
-            System.out.print(result[i]);
-            if (i < result.length - 1) {
-                System.out.print(", ");
+            if (result[i] != null) {
+                output.append(result[i]);
             } else {
-                System.out.print("].");
+                output.append("null");
+            }
+            if (i < result.length - 1) {
+                output.append(", ");
             }
         }
+        output.append("].");
+        System.out.println(output);
     }
 }
