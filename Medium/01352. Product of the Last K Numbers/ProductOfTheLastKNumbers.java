@@ -2,28 +2,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 class ProductOfNumbers {
-    List<Integer> listOfProducts;
+    private List<Integer> prefixProduct;
 
     public ProductOfNumbers() {
-        listOfProducts = new ArrayList<>();
-        listOfProducts.add(1);
+        prefixProduct = new ArrayList<>();
+        prefixProduct.add(1);
     }
-    
+
     public void add(int num) {
         if (num == 0) {
-            listOfProducts = new ArrayList<>();
-            listOfProducts.add(1);
+            prefixProduct.clear();
+            prefixProduct.add(1);
         } else {
-            listOfProducts.add(listOfProducts.get(listOfProducts.size() - 1) * num);
+            prefixProduct.add(prefixProduct.get(prefixProduct.size() - 1) * num);
         }
     }
-    
+
     public int getProduct(int k) {
-        if (k >= listOfProducts.size()) {
+        if (k >= prefixProduct.size()) {
             return 0;
         }
-
-        return listOfProducts.get(listOfProducts.size() - 1) / listOfProducts.get(listOfProducts.size() - 1 - k);
+        return prefixProduct.get(prefixProduct.size() - 1) / prefixProduct.get(prefixProduct.size() - 1 - k);
     }
 }
 
@@ -36,39 +35,37 @@ class ProductOfNumbers {
 
  public class ProductOfTheLastKNumbers {
     public static void main(String[] args) {
-        String activities[] = {
-            "ProductOfNumbers",
-            "add", "add", "add", "add", "add",
+        String[] activities = {
+            "ProductOfNumbers", "add", "add", "add", "add", "add",
             "getProduct", "getProduct", "getProduct", "add", "getProduct"
         };
         int[][] values = {
             {}, {3}, {0}, {2}, {5}, {4},
-                {2}, {3}, {4}, {8}, {2}
+            {2}, {3}, {4}, {8}, {2}
         };
+
+        executeOperations(activities, values);
+    }
+
+    private static void executeOperations(String[] activities, int[][] values) {
         ProductOfNumbers productOfNumbers = new ProductOfNumbers();
-        int activitiesLength = activities.length;
-        Integer[] result = new Integer[activitiesLength];
-        
-        for (int i = 0; i < activitiesLength; ++i) {
-            if (activities[i] == "ProductOfNumbers") {
-                // productOfNumbers = new ProductOfNumbers();
-            } else if (activities[i] == "add") {
-                productOfNumbers.add(values[i][0]);
-            } else if (activities[i] == "getProduct") {
-                result[i] = productOfNumbers.getProduct(values[i][0]);
-            } else {
-                result[i] = Integer.MIN_VALUE;
+        List<Integer> result = new ArrayList<>();
+
+        for (int i = 0; i < activities.length; ++i) {
+            switch (activities[i]) {
+                case "add":
+                    productOfNumbers.add(values[i][0]);
+                    result.add(null);
+                    break;
+                case "getProduct":
+                    result.add(productOfNumbers.getProduct(values[i][0]));
+                    break;
+                default:
+                    result.add(null);
+                    break;
             }
         }
 
-        System.out.print("[");
-        for (int i = 0; i < result.length; ++i) {
-            System.out.print(result[i]);
-            if (i < result.length - 1) {
-                System.out.print(", ");
-            } else {
-                System.out.print("].");
-            }
-        }
+        System.out.println(result);
     }
- }
+}
