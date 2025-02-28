@@ -6,4 +6,5 @@ Medium/02467. Most Profitable Path in a Tree
 
 # Hard
 Hard/01028. Recover a Tree From Preorder Traversal
+Hard/01092. Shortest Common Supersequence 
 Hard/02097. Valid Arrangement of Pairs
