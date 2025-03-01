@@ -13,7 +13,6 @@ public static void main(String[] args) {
     // Array of values:
     StringBuilder resultStringBuilder = new StringBuilder();
     resultStringBuilder.append("[");
-
     for (int i = 0; i < result.length; ++i) {
         resultStringBuilder.append(result[i]).append(i < result.length - 1 ? ", " : "].");
     }
@@ -22,7 +21,6 @@ public static void main(String[] args) {
 
     // Arrays of values:
     StringBuilder resultStringBuilder = new StringBuilder("[\n");
-
     for (char[] row : result) {
         resultStringBuilder.append("  [");
         resultStringBuilder.append(Arrays.stream(row)
@@ -30,7 +28,6 @@ public static void main(String[] args) {
                 .collect(Collectors.joining(", ")));
         resultStringBuilder.append("],\n");
     }
-
     resultStringBuilder.setLength(resultStringBuilder.length() - 2);
     resultStringBuilder.append("\n].");
 
