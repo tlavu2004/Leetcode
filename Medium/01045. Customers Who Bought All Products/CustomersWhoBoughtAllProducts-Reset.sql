@@ -1,2 +1,2 @@
-DROP TABLE IF EXISTS Customer;
-DROP TABLE IF EXISTS Product;
+Drop table If Exists Customer;
+Drop table If Exists Product;
