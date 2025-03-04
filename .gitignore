@@ -1,3 +1,6 @@
+# Editor directories and files
+.vscode/
+
 # Utilities
 
 
@@ -5,7 +8,7 @@
 # Easy
 
 # Medium
-Medium/02467. Most Profitable Path in a Tree
+Medium/02467. Most Profitable Path in a Tree/
 
 # Hard
-Hard/02097. Valid Arrangement of Pairs
+Hard/02097. Valid Arrangement of Pairs/
