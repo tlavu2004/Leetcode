@@ -3,6 +3,7 @@
 # Medium
 Medium/873. Length of Longest Fibonacci Subsequence
 Medium/1079. Letter Tile Possibilities
+Medium/1358. Number of Substrings Containing All Three Characters
 Medium/1718. Construct the Lexicographically Largest Valid Sequence
 Medium/1760. Minimum Limit of Balls in a Bag
 Medium/1910. Remove All Occurrences of a Substring
