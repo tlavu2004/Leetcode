@@ -1,6 +1,6 @@
 # Easy (0 problem(s))
 
-# Medium (10 problem(s))
+# Medium (12 problem(s))
 Medium/873. Length of Longest Fibonacci Subsequence
 Medium/1079. Letter Tile Possibilities
 Medium/1358. Number of Substrings Containing All Three Characters
