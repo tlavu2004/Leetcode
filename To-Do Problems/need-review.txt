@@ -1,12 +1,13 @@
 # Easy (0 problem(s))
 
-# Medium (12 problem(s))
+# Medium (13 problem(s))
 Medium/873. Length of Longest Fibonacci Subsequence
 Medium/1079. Letter Tile Possibilities
 Medium/1358. Number of Substrings Containing All Three Characters
 Medium/1718. Construct the Lexicographically Largest Valid Sequence
 Medium/1760. Minimum Limit of Balls in a Bag
 Medium/1910. Remove All Occurrences of a Substring
+Medium/1976. Number of Ways to Arrive at Destination
 Medium/2054. Two Best Non-Overlapping Events
 Medium/2375. Construct Smallest Number From DI String
 Medium/2401. Longest Nice Subarray
