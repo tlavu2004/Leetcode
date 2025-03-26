@@ -1,0 +1,6 @@
+# Easy (0 problem(s))
+
+# Medium (1 problem(s))
+Medium/02033. Minimum Operations to Make a Uni-Value Grid
+
+# Hard(0 problem(s))
