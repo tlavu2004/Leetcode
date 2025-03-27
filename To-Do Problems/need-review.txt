@@ -1,6 +1,6 @@
 # Easy (0 problem(s))
 
-# Medium (14 problem(s))
+# Medium (15 problem(s))
 Medium/873. Length of Longest Fibonacci Subsequence
 Medium/1079. Letter Tile Possibilities
 Medium/1358. Number of Substrings Containing All Three Characters
@@ -13,6 +13,7 @@ Medium/2375. Construct Smallest Number From DI String
 Medium/2401. Longest Nice Subarray
 Medium/2560. House Robber IV (Same as Medium/2594. Minimum Time to Repair Cars)
 Medium/2594. Minimum Time to Repair Cars (Same as Medium/2560. House Robber IV)
+Medium/2780. Minimum Index of a Valid Split
 Medium/3152. Special Array II
 Medium/3394. Check if Grid can be Cut into Sections
 
