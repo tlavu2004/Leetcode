@@ -5,7 +5,7 @@ Medium/1261. Find Elements in a Contaminated Binary Tree
 Medium/2115. Find All Possible Recipes from Given Supplies
 Medium/2467. Most Profitable Path in a Tree
 
-# Hard(4 problem(s))
+# Hard (4 problem(s))
 Hard/1028. Recover a Tree From Preorder Traversal
 Hard/1092. Shortest Common Supersequence 
 Hard/2097. Valid Arrangement of Pairs
